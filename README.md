@@ -1,24 +1,32 @@
-# Vania Janet Raya Ríos — Academic Website
+# Vania Janet Raya Ríos — academic website
 
-A minimal, accessible, static academic homepage hosted on GitHub Pages.
+A static academic homepage for PhD applications, hosted on GitHub Pages: https://vania-janet.github.io/
 
-**Website:** https://vania-janet.github.io/
+No framework, no build step, no JavaScript, no trackers, and no third-party requests (the fonts are self-hosted).
 
 ## Files
-- \`index.html\`: page content (About, Publications, Awards, Academic Service)
-- \`styles.css\`: responsive light-theme styles; no frameworks, tracking or JavaScript
-- \`assets/Vania_Raya_CV.pdf\`: downloadable two-page academic CV
-- \`assets/Samsung_Essay_English.pdf\`: unofficial English translation
-- \`assets/Samsung_Essay_Original_Spanish.pdf\`: Spanish version of the essay
-- \`.nojekyll\`: serve the static site directly without a Jekyll theme
+
+| Path | What it is |
+| --- | --- |
+| `index.html` | All page content: research threads, publications, experience, education, honours, teaching, projects, skills, contact |
+| `styles.css` | Design tokens and layout. Colours and fonts are defined at the top of the file |
+| `assets/img/semeval-architecture.png` | Figure 1 of the SemEval 2026 paper, cropped from `img/diagram_full_RAG_flow.png` in the team repository |
+| `assets/fonts/` | Newsreader and Hanken Grotesk, subset to Latin and served as WOFF (SIL Open Font License) |
+| `assets/Vania_Raya_CV.pdf` | Downloadable CV (retained from existing site) |
+| `assets/Samsung_Essay_*.pdf` | Original Spanish essay and unofficial English translation (retained from existing site) |
 
 ## Editing
-Change text and links directly in \`index.html\`, or replace the PDF files in \`assets/\`.
-The portrait uses the image published on the GitHub profile. To use a different professional headshot, add \`assets/profile.jpg\` and change the \`img\` element's \`src\`.
 
-**Missing supporting items (not represented as published):** SemEval certificate, Samsung certificate, and WMT public code/poster links.
+- **Text and links:** edit `index.html` directly. Each section is one `<section class="section">` with a title in the left margin.
+- **Portrait:** the page currently loads your GitHub avatar. For a professional headshot, add `assets/profile.jpg` (square, at least 512 px) and change the `src` of `.hero__photo` in `index.html`.
+- **Update the CV:** replace `assets/Vania_Raya_CV.pdf` and keep the file name.
+- **Accent colour:** change `--accent` and `--accent-ink` in `styles.css`.
+- **Anonymous submissions:** Do not publish manuscript titles, submission links or details that identify anonymous submissions during peer review.
 
-## Publishing with GitHub Pages
-Open **Settings → Pages**, set **Build and deployment** to *Deploy from a branch*, select **main** and **/(root)**, and save. The deployment URL should be https://vania-janet.github.io/ after publication.
+## Figures
 
-No anonymous under-review manuscript is included in this public site.
+The pipeline and result figures in the Research section are inline SVG drawn from the numbers reported in the papers and CV. The pipeline diagram for the phenotype manuscript is a schematic, and is labelled as such on the page. Replace it with a figure from the manuscript once it is public.
+
+## Publishing
+
+In the repository, open **Settings → Pages**, choose *Deploy from a branch*, select **main** and **/(root)**. The `.nojekyll` file makes GitHub serve the files as they are.
