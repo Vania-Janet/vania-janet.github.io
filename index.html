@@ -96,7 +96,7 @@
     <section class="section" id="research" aria-labelledby="research-title">
       <h2 class="section__title" id="research-title">Research</h2>
       <div class="section__body">
-        <p class="section__lede">Three threads connect my work: retrieval that stays accurate across a conversation, smaller models that keep their quality, and predictions that come with a stated error guarantee.</p>
+        <p class="section__lede">My work spans multi-turn neural retrieval, efficient language models, and risk-controlled prediction for clinical language and knowledge graphs.</p>
 
         <article class="thread">
           <h3 class="thread__title">Retrieval that holds up across a conversation</h3>
@@ -137,6 +137,16 @@
             </figure>
           </div>
         </article>
+
+        <article class="thread" id="research-phenotype">
+          <h3 class="thread__title">Risk-controlled phenotype normalization</h3>
+          <div class="thread__text">
+            <p>Clinical language systems must link descriptions of patient abnormalities to the Human Phenotype Ontology (HPO). When the most specific prediction is unreliable, can a system return a valid, more general ancestor or abstain while keeping its error rate below a chosen target?</p>
+            <p>In a manuscript currently under review, we study hierarchical back-off over the HPO's multi-inheritance graph. We compare learned decisions with simpler hierarchical climbing rules and use finite-sample Clopper–Pearson bounds to certify candidate policies under explicit sampling assumptions.</p>
+            <p>On the standard retrospective PhenoNormBench evaluation, our back-off policy reduces observed error among answered mentions from 17.2% to 0.85% while answering 70.9% of mentions. Under dependence-aware splits, certification becomes substantially more conservative, exposing a real trade-off between reliability, coverage, and specificity.</p>
+            <p class="links"><a class="links__item" href="#pub-risk-phenotype">Manuscript and findings</a></p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -144,6 +154,23 @@
     <section class="section" id="publications" aria-labelledby="pub-title">
       <h2 class="section__title" id="pub-title">Publications</h2>
       <div class="section__body">
+
+        <article class="entry" id="pub-risk-phenotype">
+          <div class="entry__meta">
+            <p class="entry__when">2026</p>
+            <p class="entry__where">ACL Rolling Review</p>
+          </div>
+          <div class="entry__body">
+            <h3 class="entry__title">What Does a Risk Guarantee Cost? Certified Hierarchical Back-off for Phenotype Normalization</h3>
+            <p class="entry__venue"><em>Manuscript under review</em> · ACL Rolling Review, October 2026. Not yet peer reviewed or accepted.</p>
+            <p class="entry__text">We study when clinical phenotype mentions can be mapped to exact Human Phenotype Ontology concepts, backed off to valid ancestors, or left unanswered under a finite-sample error-risk constraint. The comparison includes learned back-off, flat abstention, and tree/DAG hierarchical climbing. On the retrospective benchmark, learned back-off answers 70.9% of mentions at 0.85% observed error among answered cases, versus 17.2% error for the unfiltered Top-1 baseline. Dependence-aware experiments expose the cost of certification: less coverage or less informative answers. These retrospective results should not be interpreted as a prospective clinical guarantee.</p>
+            <p class="links">
+              <a class="links__item" href="#research-phenotype">Research overview</a>
+              <a class="links__item" id="phenotype-manuscript-pdf" href="assets/What_Does_a_Risk_Guarantee_Cost.pdf" hidden>Manuscript PDF</a>
+            </p>
+            <p class="entry__note">The manuscript is under review; the PDF link appears when its copy has been uploaded to this website.</p>
+          </div>
+        </article>
 
         <article class="entry" id="pub-semeval">
           <div class="entry__meta">
@@ -512,5 +539,15 @@
     <p>Static page with no trackers. Set in Newsreader and Hanken Grotesk (SIL Open Font License).</p>
   </div>
 </footer>
+<script>
+  // Avoid presenting a broken PDF link before the manuscript is hosted on GitHub Pages.
+  (function () {
+    var link = document.getElementById('phenotype-manuscript-pdf');
+    if (!link) return;
+    fetch(link.getAttribute('href'), { method: 'HEAD' })
+      .then(function (response) { if (response.ok) link.hidden = false; })
+      .catch(function () {});
+  }());
+</script>
 </body>
 </html>
