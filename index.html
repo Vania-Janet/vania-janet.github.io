@@ -166,9 +166,9 @@
             <p class="entry__text">We study when clinical phenotype mentions can be mapped to exact Human Phenotype Ontology concepts, backed off to valid ancestors, or left unanswered under a finite-sample error-risk constraint. The comparison includes learned back-off, flat abstention, and tree/DAG hierarchical climbing. On the retrospective benchmark, learned back-off answers 70.9% of mentions at 0.85% observed error among answered cases, versus 17.2% error for the unfiltered Top-1 baseline. Dependence-aware experiments expose the cost of certification: less coverage or less informative answers. These retrospective results should not be interpreted as a prospective clinical guarantee.</p>
             <p class="links">
               <a class="links__item" href="#research-phenotype">Research overview</a>
-              <a class="links__item" id="phenotype-manuscript-pdf" href="assets/What_Does_a_Risk_Guarantee_Cost.pdf" hidden>Manuscript PDF</a>
+              <a class="links__item" id="phenotype-manuscript-pdf" href="assets/What_Does_a_Risk_Guarante.pdf" target="_blank" rel="noopener noreferrer">Manuscript PDF</a>
             </p>
-            <p class="entry__note">The manuscript is under review; the PDF link appears when its copy has been uploaded to this website.</p>
+            <p class="entry__note">Under review. This is a manuscript draft, not a peer-reviewed or accepted publication.</p>
           </div>
         </article>
 
@@ -539,15 +539,5 @@
     <p>Static page with no trackers. Set in Newsreader and Hanken Grotesk (SIL Open Font License).</p>
   </div>
 </footer>
-<script>
-  // Avoid presenting a broken PDF link before the manuscript is hosted on GitHub Pages.
-  (function () {
-    var link = document.getElementById('phenotype-manuscript-pdf');
-    if (!link) return;
-    fetch(link.getAttribute('href'), { method: 'HEAD' })
-      .then(function (response) { if (response.ok) link.hidden = false; })
-      .catch(function () {});
-  }());
-</script>
 </body>
 </html>
