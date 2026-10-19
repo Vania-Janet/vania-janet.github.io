@@ -300,6 +300,8 @@
               <li>Co-first author of the WMT26 model-compression paper (Czech to German, Gemma 3 12B). Owned the task-calibrated 4-bit GPTQ workstream: 99.7% of dense COMET retained on a 300-sentence development set, GPU memory 26.6 to 17.6 GiB.</li>
               <li>Compared against activation-aware SVD (46.6% fewer parameters). The combined SVD and quantization variant scored below either method alone, and the paper reports that failure.</li>
             </ul>
+            <p class="entry__note">Completed MBZUAI's Undergraduate Research Internship Program (UGRIP), 1–26 June 2026. Certificate of Recognition issued on 26 June 2026.</p>
+            <p class="links"><a class="links__item" href="assets/UGRIP%20Vania%20Janet%20Raya%20Rios.pdf" target="_blank" rel="noopener noreferrer" id="ugrip-certificate-link" hidden>UGRIP Certificate (PDF)</a></p>
           </div>
         </article>
 
@@ -539,5 +541,15 @@
     <p>Static page with no trackers. Set in Newsreader and Hanken Grotesk (SIL Open Font License).</p>
   </div>
 </footer>
+<script>
+  // Reveal the UGRIP certificate only after its PDF has been published to GitHub Pages.
+  (function () {
+    var link = document.getElementById('ugrip-certificate-link');
+    if (!link) return;
+    fetch(link.getAttribute('href'), { method: 'HEAD' })
+      .then(function (response) { if (response.ok && /pdf/i.test(response.headers.get('content-type') || '')) link.hidden = false; })
+      .catch(function () {});
+  }());
+</script>
 </body>
 </html>
