@@ -349,3 +349,9 @@ h4.subhead { margin-top: 1.75rem; }
   .links__item[href^="http"]::after { content: " (" attr(href) ")"; font-weight: 400; font-size: 8pt; color: var(--soft); word-break: break-all; }
   .disclosure:not([open]) { display: none; }
 }
+
+/* --- Project video presentation ----------------------------------------- */
+.project-video { max-width: 43rem; margin: 1.2rem 0 0; }
+.project-video__player { display: block; width: 100%; height: auto; max-height: 32rem; border-radius: var(--radius); background: #111; border: 1px solid var(--rule); }
+.project-video .figcap { margin-top: 0.6rem; }
+
