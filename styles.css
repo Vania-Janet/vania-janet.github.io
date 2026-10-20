@@ -5,22 +5,24 @@
    ========================================================================== */
 
 /* --- Fonts ---------------------------------------------------------------
-   Self-hosted. If your old styles.css already had working @font-face rules,
-   keep those and delete this block. File names below are assumptions:
-   check them with `ls assets/fonts` and edit the url() paths to match.
-   The .woff2 files are produced by optimize-assets.sh; .woff stays as fallback. */
+   Self-hosted font files present in assets/fonts. */
 @font-face {
   font-family: "Newsreader";
-  src: url("assets/fonts/newsreader.woff2") format("woff2"),
-       url("assets/fonts/newsreader.woff") format("woff");
+  src: url("assets/fonts/newsreader.woff") format("woff");
   font-weight: 200 800;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
+  font-family: "Newsreader";
+  src: url("assets/fonts/newsreader-italic.woff") format("woff");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
   font-family: "Hanken Grotesk";
-  src: url("assets/fonts/hanken-grotesk.woff2") format("woff2"),
-       url("assets/fonts/hanken-grotesk.woff") format("woff");
+  src: url("assets/fonts/hanken-grotesk.woff") format("woff");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -264,7 +266,7 @@ h4.subhead { margin-top: 1.75rem; }
 .cert { margin: 0; width: 11.5rem; }
 .cert__link { display: block; border-radius: 4px; }
 .cert__thumb {
-  display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top;
+  display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; object-position: center;
   background: var(--card); border: 1px solid var(--rule); border-radius: 4px;
   transition: box-shadow 0.15s, transform 0.15s;
 }
@@ -289,6 +291,12 @@ h4.subhead { margin-top: 1.75rem; }
 .site-footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; }
 .site-footer p { margin: 0; }
 
+/* --- Laptop: keep all navigation items accessible without overlap -------- */
+@media (min-width: 52.01rem) and (max-width: 75rem) {
+  .site-header__inner { flex-wrap: wrap; align-content: center; gap: 0.35rem; padding-block: 0.7rem; }
+  .site-nav { width: 100%; min-width: 0; overflow-x: auto; white-space: nowrap; padding-bottom: 0.3rem; }
+  html { scroll-padding-top: 7rem; }
+}
 /* --- Tablet / mobile ----------------------------------------------------- */
 @media (max-width: 62rem) {
   .section { grid-template-columns: 1fr; gap: 1.25rem; }
